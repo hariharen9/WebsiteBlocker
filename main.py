@@ -11,7 +11,7 @@ website_list=["facebook.com", "www.facebook.com"] #add links ou wish to block
 while True:
     if dt(dt.now().year,dt.now().month,dt.now().day,9) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,17): #working hours
         print("Working hours...")
-        with open(temp, "r+") as file:
+        with open(hosts_path, "r+") as file:
             content=file.read()
             for website in website_list:
                 if website in content:
@@ -20,7 +20,7 @@ while True:
                     file.write(redirect+" "+website+"\n")
 
     else:
-        with open(temp,'r+') as file:
+        with open(hosts_path,'r+') as file:
             content=file.readlines()
             file.seek(0)
             for line in content:
